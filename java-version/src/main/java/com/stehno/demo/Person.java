@@ -2,12 +2,14 @@ package com.stehno.demo;
 
 import org.apache.commons.lang3.builder.CompareToBuilder;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import static java.lang.String.format;
 
 public class Person implements Comparable<Person> {
 
+    private final SimpleDateFormat dateFormatter = new SimpleDateFormat("MM/dd/yyyy");
     private Long id;
     private Name name;
     private Date dateOfBirth;
@@ -57,8 +59,19 @@ public class Person implements Comparable<Person> {
         return format("Person{id=%d, name=%s, dateOfBirth=%s, gender=%s}", id, name, dateOfBirth, gender);
     }
 
-    public String toJson(){
-        // FIXME: implement
+    public String toJson() {
+        final StringBuffer str = new StringBuffer();
+
+        str.append('{');
+
+        str.append("\"id\":").append(id).append(", ");
+        str.append("\"name\":").append(name.toJson()).append(", ");
+        str.append("\"dob\":\"").append(dateFormatter.format(dateOfBirth)).append("\", ");
+        str.append("\"gender\":\"").append(gender).append("\"");
+
+        str.append('}');
+
+        return str.toString();
     }
 
     @Override

@@ -74,6 +74,9 @@ public class Processor {
                 write(ouputFile, person.toJson(), defaultCharset(), true);
             }
 
+            // close out the last file
+            write(ouputFile, "]", defaultCharset(), true);
+
             System.out.println("Done");
 
         } catch (Exception ex) {

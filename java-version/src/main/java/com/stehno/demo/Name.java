@@ -27,6 +27,17 @@ public class Name implements Comparable<Name> {
         return format("Name{first='%s', last='%s'}", first, last);
     }
 
+    public String toJson() {
+        final StringBuffer str = new StringBuffer();
+
+        str.append('{');
+        str.append("\"first\":\"").append(first).append("\", ");
+        str.append("\"last\":\"").append(last).append("\" ");
+        str.append('}');
+
+        return str.toString();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
