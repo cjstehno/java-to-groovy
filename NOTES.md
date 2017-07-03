@@ -97,9 +97,8 @@
     * extend specification
     * replace test with similar spec (remove asserts too)
     * quick into to spock
-
-* update the test a bit
-* update the asserts in the test (and fix strings)
-
+    * talk about other features of spock
 
 compare line counts
+
+just scraping the surface of groovy to give a quick intro
